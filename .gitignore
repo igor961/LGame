@@ -1,0 +1,4 @@
+temp/
+builds*/
+*.swp
+*.swo
