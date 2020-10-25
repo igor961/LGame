@@ -1,0 +1,10 @@
+version: 2.1
+jobs:
+  build:
+    docker: 
+      - image: emscripten/emsdk
+    steps:
+      - checkout
+      - run:
+          name: "Build"
+          command: source build-web.sh
