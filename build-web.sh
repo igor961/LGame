@@ -1,6 +1,6 @@
 #!/bin/sh
 
-git clone https://github.com/raysan5/raylib.git ../raylib
+git clone https://github.com/igor961/raylib.git ../raylib
 
 cd ../raylib/src
 
