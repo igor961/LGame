@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: "Build"
-          command: source build-web.sh
+          command: source circleci-build-web.sh
       - persist_to_workspace:
           root: builds/
           paths: web

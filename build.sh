@@ -2,11 +2,6 @@
 # Change your executable name here
 GAME_NAME="game"
 
-# Set your sources here (relative paths!)
-# Example with two source folders:
-# SOURCES="src/*.c src/submodule/*.c"
-SOURCES="src/*.c"
-
 # Set your raylib/src location here (relative path!)
 RAYLIB_SRC="../../raylib/src"
 
@@ -16,6 +11,11 @@ RAYLIB_SRC="../../raylib/src"
 # src/*.c files, and linking together those two. Each invocation is
 # wrapped in an if statement to make the -qq flag work, it's pretty
 # verbose, sorry.
+
+# Directories
+ROOT_DIR=$PWD
+SOURCES="$ROOT_DIR/src/*.c $ROOT_DIR/src/utils/*.c"
+RAYLIB_SRC="$ROOT_DIR/$RAYLIB_SRC"
 
 # Stop the script if a compilation (or something else?) fails
 set -e
@@ -78,11 +78,6 @@ done
 if [ -z "$CC" ]; then
     CC=cc
 fi
-
-# Directories
-ROOT_DIR=$PWD
-SOURCES="$ROOT_DIR/$SOURCES"
-RAYLIB_SRC="$ROOT_DIR/$RAYLIB_SRC"
 
 # Flags
 OUTPUT_DIR="builds/linux"
