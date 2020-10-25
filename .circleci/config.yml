@@ -8,3 +8,31 @@ jobs:
       - run:
           name: "Build"
           command: source build-web.sh
+      - persist_to_workspace:
+          root: builds/
+          paths: web
+  deploy:
+    docker:
+      - image: node
+    steps:
+      - checkout
+      - attach_workspace:
+        at: builds
+      - run:
+          name: Install gh-pages
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "ci-build@circleci.com"
+            git config user.name "ci-build"
+      - run:
+          name: Deploy
+          command: gh-pages --dist builds/web
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+
