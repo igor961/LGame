@@ -24,6 +24,9 @@ jobs:
             npm install -g --silent gh-pages@2.0.1
             git config user.email "ci-build@circleci.com"
             git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "e6:4d:ef:39:6e:c8:0d:ba:4a:fd:b8:98:87:a6:27:ca"
       - run:
           name: Deploy
           command: gh-pages --dist builds/web
