@@ -1,6 +1,6 @@
 #ifndef hashmap
 #define hashmap
 
-void test();
+// TODO: define hashmap
 
 #endif
